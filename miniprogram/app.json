@@ -13,13 +13,19 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/index/index",
-      "text": "主页"
+      "text": "主页",
+      "iconPath": "./images/1.png",
+      "selectedIconPath": "./images/0.png"
     }, {
       "pagePath": "pages/preordain/preordain",
-      "text" : "预定"
+      "text" : "预定",
+      "iconPath": "./images/2.png",
+      "selectedIconPath": "./images/0.png"
     }, {
       "pagePath": "pages/my/my",
-      "text": "我的"  
+      "text": "我的",
+      "iconPath": "./images/3.png",
+      "selectedIconPath": "./images/0.png"
     }]
   },
   "window": {
