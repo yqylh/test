@@ -7,7 +7,7 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: '',
+    requestResult: ''
   },
   clicksao: function() {
     wx.scanCode({
@@ -23,7 +23,6 @@ Page({
       })
       return
     }
-
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -41,6 +40,7 @@ Page({
       }
     })
   },
+  
   onGetUserInfo: function(e) {
     if (!this.logged && e.detail.userInfo) {
       this.setData({

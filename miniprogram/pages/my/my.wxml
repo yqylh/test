@@ -9,7 +9,32 @@
       style="background-image: url({{avatarUrl}})"
     ></button>
     <view>
-      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+      <button class="userinfo-nickname">
+       {{userInfo.nickName}}
+       <view class='identity'  >
+        {{identity}}
+       </view>
+      </button>
     </view>
+  </view>
+  <view class='uploader'>
+      <navigator class='uploader-text' url='../clientInfo/clientInfo'>
+        我的资料
+      </navigator>
+  </view>
+  <view class='uploader'>
+      <navigator class='uploader-text' url='../clientInfo/clientInfo'>
+        最近文件
+      </navigator>
+  </view>
+  <view class='uploader'>
+      <navigator class='uploader-text' url='../clientInfo/clientInfo'>
+        反馈
+      </navigator>
+  </view>
+  <view class='uploader'>
+      <navigator class='uploader-text' url='../clientInfo/clientInfo'>
+        版本信息
+      </navigator>
   </view>
 </view>

@@ -9,7 +9,7 @@
       style="background-image: url({{avatarUrl}})"
     ></button>
     <view>
-      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+      <button class="userinfo-nickname" bindtap="getName">点击获取 openid</button>
     </view>
   </view>
 
@@ -38,5 +38,9 @@
       <text>快速新建云函数</text>
     </navigator>
   </view>
-
+  <view class='uploader'>
+    <button open-type='contect' class='uploader-text'>
+    <text>点击反馈</text>
+    </button> 
+  </view>
 </view>

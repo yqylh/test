@@ -26,7 +26,10 @@
       "text": "我的",
       "iconPath": "./images/3.png",
       "selectedIconPath": "./images/0.png"
-    }]
+    }],
+    "selectedColor": "#000000",
+    "color": "#BFBFBF"
+
   },
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -35,5 +38,6 @@
     "navigationBarTitleText": "会议室管理系统",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
+    
   }
 }
