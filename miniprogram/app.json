@@ -7,7 +7,8 @@
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
-    "pages/preordain/preordain"
+    "pages/preordain/preordain",
+    "pages/my/my"
   ],
   "tabBar": {
     "list": [{
@@ -16,13 +17,16 @@
     }, {
       "pagePath": "pages/preordain/preordain",
       "text" : "预定"
+    }, {
+      "pagePath": "pages/my/my",
+      "text": "我的"
     }]
   },
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "t11est1",
-    "navigationBarTextStyle": "light"
+    "navigationBarTitleText": "会议室管理系统",
+    "navigationBarTextStyle": "black"
   }
 }

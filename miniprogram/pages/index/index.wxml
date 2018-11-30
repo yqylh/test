@@ -1,7 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-<view>{{ msg }}</view>
-<button bindtap = "clicksao">点一下扫一扫</button>
   <!-- 用户 openid -->
   <view class="userinfo">
     <button 
