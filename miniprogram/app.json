@@ -19,14 +19,15 @@
       "text" : "预定"
     }, {
       "pagePath": "pages/my/my",
-      "text": "我的"
+      "text": "我的"  
     }]
   },
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#00BFFF",
     "navigationBarTitleText": "会议室管理系统",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   }
 }
