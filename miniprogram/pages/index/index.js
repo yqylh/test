@@ -9,13 +9,6 @@ Page({
     takeSession: false,
     requestResult: ''
   },
-  clicksao: function() {
-    wx.scanCode({
-      success: (res) => {
-        console.log(res)  
-      }
-    })
-  },
   onLoad: function() {
     if (!wx.cloud) {
       wx.redirectTo({
