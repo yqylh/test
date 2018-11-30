@@ -7,15 +7,15 @@
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
-    "pages/logs/logs"
+    "pages/preordain/preordain"
   ],
   "tabBar": {
     "list": [{
       "pagePath": "pages/index/index",
       "text": "主页"
     }, {
-      "pagePath": "pages/logs/logs",
-      "text" : "test1"
+      "pagePath": "pages/preordain/preordain",
+      "text" : "预定"
     }]
   },
   "window": {
