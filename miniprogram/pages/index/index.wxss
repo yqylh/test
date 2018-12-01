@@ -91,7 +91,7 @@ page {
 }
 
 button{
-  margin-bottom: 10rpx;
+  margin-bottom: 0;
 }
 button:last-child{
   margin-bottom: 0;
@@ -131,4 +131,13 @@ button:last-child{
 }
 .his{
   background-color: #A0522D
+}
+.share{
+  margin-top: 0;
+  width:20%;
+  left: 250rpx;
+  max-height: 50rpx;
+  font-size: 25rpx;
+  background-color :#87CEFF;
+  padding: 0;
 }

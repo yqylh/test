@@ -27,15 +27,17 @@
     <view>
       <view hidden='{{open[0]}}'>
        <block class='ordList' wx:for="{{ordList}}" wx:key="id">
-        <view wx:if="{{item.id=='0' && ((item.from < curtime && item.end > curtime)||true)}}" style='background-color:#ccff66' class="list-item " data-id="{{item.id}}" bindtap="toDetailPage"> 
+        <view wx:if="{{item.id=='0' && ((item.from < curtime && item.end > curtime)||true)}}" data-id="{{item.id}} "style='background-color:#ccff66' class="list-item " > 
         ///对第一个进行判断并渲染
          <view class="content">
-          <text>正在进行:\n{{item}}</text>
+          <view bindtap="toDetailPage">正在进行:\n{{item}}</view>
+          <button bindtap='share' class='share'>分享</button>
          </view>
         </view>
-        <view class="list-item " data-id="{{item.id}}" bindtap="toDetailPage">
+        <view class="list-item " data-id="{{item.id}}" >
          <view class="content">
-          <text>{{item}}</text>
+          <view bindtap="toDetailPage">{{item}}</view>
+          <button bindtap='share' class='share'>转发详情</button>
          </view>
         </view>
        </block>

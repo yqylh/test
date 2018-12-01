@@ -11,8 +11,8 @@
     <view>
       <button class="userinfo-nickname">
        {{userInfo.nickName}}
-       <view class='identity' >
-        1234455{{identity}}
+       <view class='identity' hidden="{{identity==''}}" >
+        {{identity}}
        </view>
       </button>
     </view>

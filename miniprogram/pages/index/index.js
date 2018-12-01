@@ -45,6 +45,12 @@ Page({
       open: [true, true, false]
     })
   },
+  toDetailPage:function(e){
+    var id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../detailPage/detailPage?id='+id+'?title=会议详情',
+    })
+  },
   onLoad: function () {
     if (!wx.cloud) {
       wx.redirectTo({

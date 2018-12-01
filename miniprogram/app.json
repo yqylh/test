@@ -10,7 +10,8 @@
     "pages/preordain/preordain",
     "pages/my/my",
     "pages/clientInfo/clientInfo",
-    "pages/versionInfo/versionInfo"
+    "pages/versionInfo/versionInfo",
+    "pages/detailPage/detailPage"
   ],
   "tabBar": {
     "list": [
