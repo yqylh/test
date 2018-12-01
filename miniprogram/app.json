@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "pages": [
     "pages/index/index",
@@ -11,7 +10,8 @@
     "pages/preordain/preordain",
     "pages/my/my",
     "pages/clientInfo/clientInfo",
-    "pages/versionInfo/versionInfo"
+    "pages/versionInfo/versionInfo",
+    "pages/selectDate/selectDate"
   ],
   "tabBar": {
     "list": [
@@ -46,50 +46,3 @@
     "enablePullDownRefresh": true
   }
 }
-=======
-{
-  "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/preordain/preordain",
-    "pages/my/my",
-    "pages/clientInfo/clientInfo",
-    "pages/selectDate/selectDate"
-  ],
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "主页",
-      "iconPath": "./images/1.png",
-      "selectedIconPath": "./images/0.png"
-    }, {
-      "pagePath": "pages/preordain/preordain",
-      "text" : "预定",
-      "iconPath": "./images/2.png",
-      "selectedIconPath": "./images/0.png"
-    }, {
-      "pagePath": "pages/my/my",
-      "text": "我的",
-      "iconPath": "./images/3.png",
-      "selectedIconPath": "./images/0.png"
-    }],
-    "selectedColor": "#000000",
-    "color": "#BFBFBF"
-
-  },
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#00BFFF",
-    "navigationBarTitleText": "会议室管理系统",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
-    
-  }
-}
->>>>>>> 6dea54d39d88de05c9769402cef0f7362f261f59

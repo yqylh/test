@@ -33,7 +33,7 @@ Page({
       title: '提交成功',
     })
     wx.redirectTo({
-      url: '../index/index',
+      url: '../my/my',
     })
   },
   /**

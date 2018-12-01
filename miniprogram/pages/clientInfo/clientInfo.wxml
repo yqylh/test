@@ -6,7 +6,7 @@
   </view>
   <view style="display:flex;">
     <label>学工号：</label>
-    <input name="userNum" placeholder="请输入学工号" />
+    <input usrNum="userNum" placeholder="请输入学工号" />
   </view>
   <view style="display:flex;margin-top:30px;">
     <button style="width:100%;" formType="submit" >提交</button>

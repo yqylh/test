@@ -2,13 +2,51 @@
 <!-- tab栏flex布局 -->
 <text></text>
 <view class='float-box'>  
-      <button class='weui-badge' style="background-color:#00a381" bindtap='showOrdlist' >  
+      <button class='weui-badge' style="background-color:#00a381" bindtap='bindChange' >  
         <text>日期</text>
       </button>
-      <button class='weui-badge' style="background-color:#00a381" bindtap='showWaitlist' > 
+      <button class='weui-badge' style="background-color:#00a381" bindtap='showType' > 
         <text>教室类型</text>
       </button>
-      <button class='weui-badge' style="background-color:#00a381" bindtap='showHis' > 
-        <text>座位数</text>
+      <button class='weui-badge' style="background-color:#00a381" bindtap='powerDrawer' data-statu="open"> 
+      <text>容纳人数</text>
       </button>
+
+      <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>  
+      <!--content-->  
+      <!--使用animation属性指定需要执行的动画-->  
+      <form animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}" bindsubmit="reg">  
+        <!--drawer content-->  
+        <view class="drawer_title">请输入人数区间</view>  
+        <view class="drawer_content">  
+          <view class="top grid">  
+            <label class="title col-0">最少容纳</label>  
+            <input class="input_base input_h30 col-1" name="least"></input>  
+          </view>  
+          <view class="top grid">  
+            <label class="title col-0">最多容纳</label>  
+            <input class="input_base input_h30 col-1" name="most"></input>  
+          </view>  
+        </view>  
+        <button class="btn_ok" bindtap="powerDrawer" data-statu="close" form-type="submit">确定</button>
+       </form>
+      
+      <!-- <view style='display:flex;'>
+        <form bindsubmit="formBindsubmit" hidden='{{hiddenmodalput}}'>
+        <label>最少：</label>
+        <input name='least'  auto-focus />
+        <label>最多：</label>
+        <input name='most' auto-focus />
+        </form>
+      </view> -->
+
+      <block wx:for-items="{{classType}}" wx:for-index="id" wx:for-item="page" wx:key="id">
+        <view hidden="{{num != id}}" data-id="{{item.id}}" bindtap="toDetailPage">
+        <view class="list-item" wx:for="{{page}}" >
+          <view>
+          {{item}}
+          </view>
+        </view>
+        </view>
+      </block>
 </view>
