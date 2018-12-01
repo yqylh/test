@@ -80,7 +80,7 @@ Page({
                   data: {
                     Identity: "Teacher",
                     name: "",
-                    participate: {},
+                    participate: [0],
                     usernum: ""
                   }
                 })
