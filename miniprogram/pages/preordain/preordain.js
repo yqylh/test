@@ -39,10 +39,10 @@ Page({
   showType: function () {
     var myThis = this;
     wx.showActionSheet({
-      itemList: ['大', '中', '小'],
+      itemList: ['显示全部','大', '中', '小'],
       success: function (res) {
         myThis.setData({
-          num: res.tapIndex + 1
+          num: res.tapIndex 
         })
       },
       fail: function (res) {
@@ -75,7 +75,7 @@ Page({
     this.animation = animation;
 
     // 第3步：执行第一组动画：Y轴偏移240px后(盒子高度是240px)，停
-    animation.translateY(240).step();
+    animation.translateY(400).step();
 
     // 第4步：导出动画对象赋给数据对象储存
     this.setData({

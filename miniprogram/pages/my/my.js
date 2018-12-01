@@ -9,7 +9,8 @@ Page({
     takeSession: false,
     requestResult: '',
     name: '',
-    id:''
+    id:'',
+    identity:''
   },
   clicksao: function () {
     wx.scanCode({
