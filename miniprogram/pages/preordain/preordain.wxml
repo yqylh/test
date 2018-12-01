@@ -1,61 +1,74 @@
 <!--pages/logs/logs.wxml-->
 <!-- tab栏flex布局 -->
-<view class='float-box'>  
-      <button class='weui-badge' style="background-color:#00a381" bindtap='powerDrawer'data-statu="open" >  
-        <text>日期</text>
-      </button>
-      <button class='weui-badge' style="background-color:#00a381" bindtap='showType' > 
-        <text>教室类型</text>
-      </button>
-      <button class='weui-badge' style="background-color:#00a381" bindtap='showCont' data-statu="open"> 
-      <text>容纳人数</text>
-      </button>
+<view class='float-box'>
+  <button class='weui-badge' style="background-color:#00a381" bindtap='powerDrawer' data-statu="open">
+    <text>日期</text>
+  </button>
+  <button class='weui-badge' style="background-color:#00a381" bindtap='showType'>
+    <text>教室类型</text>
+  </button>
+  <button class='weui-badge' style="background-color:#00a381" bindtap='showCont' data-statu="open">
+    <text>容纳人数</text>
+  </button>
 
-      <view class="drawer_screen" bindtap="showCont" data-statu="close" wx:if="{{showContStatus}}"></view>  
-      <!--content-->  
-      <!--使用animation属性指定需要执行的动画-->  
-      <form animation="{{animationData}}" class="drawer_box" wx:if="{{showContStatus}}" bindsubmit="reg">  
-        <!--drawer content-->  
-        <view class="drawer_title">请输入人数区间</view>  
-        <view class="drawer_content">  
-          <view class="top grid">  
-            <label class="title col-0">最少容纳</label>  
-            <input class="input_base input_h30 col-1" name="least"></input>  
-          </view>  
-          <view class="top grid">  
-            <label class="title col-0">最多容纳</label>  
-            <input class="input_base input_h30 col-1" name="most"></input>  
-          </view>  
-        </view>  
-        <button class="btn_ok" bindtap="showCont" data-statu="close" form-type="submit">确定</button>
-       </form>
-      
-      <!-- <view style='display:flex;'>
-        <form bindsubmit="formBindsubmit" hidden='{{hiddenmodalput}}'>
-        <label>最少：</label>
-        <input name='least'  auto-focus />
-        <label>最多：</label>
-        <input name='most' auto-focus />
-        </form>
-      </view> -->
+  <form animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}" >
+    <view class="drawer_cont">
+      <view class="drawer_ti">
+        <view>{{year}}年{{month}}月{{day}}日</view>
+        <view>(允许范围){{a1}}.{{a2}}.{{a3}}~{{eyear}}.{{emonth}}.{{eday}}</view>
+      </view>
+      <picker-view indicator-style="height: 300px;" class='picker-viewer' value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+          <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+        </picker-view-column>
+      </picker-view>
+        <button class='confirm-btn' style='color:#13b5f5' bindtap='powerDrawer1' data-statu="close" >确定</button>
+    </view>
+  </form>
 
-      <block wx:for-items="{{classType}}" wx:for-index="id" wx:for-item="page" wx:key="id">
-        <view hidden="{{num != id}}" data-id="{{item.id}}" bindtap="toDetailPage">
-        <view class="list-item" wx:for="{{page}}" >
-          <view>
+
+
+ 
+  <!--content-->
+  <!--使用animation属性指定需要执行的动画-->
+  <form animation="{{animationData}}" class="drawer_box" wx:if="{{showContStatus}}" bindsubmit="reg">
+    <!--drawer content-->
+    <view class="drawer_title">请输入人数区间</view>
+    <view class="drawer_content">
+      <view class="top grid">
+        <label class="title col-0">最少容纳</label>
+        <input class="input_base input_h30 col-1" name="least"></input>
+      </view>
+      <view class="top grid">
+        <label class="title col-0">最多容纳</label>
+        <input class="input_base input_h30 col-1" name="most"></input>
+      </view>
+    </view>
+    <button class="btn_ok" bindtap="showCont" data-statu="close" form-type="submit">确定</button>
+  </form>
+
+
+
+  <block wx:for-items="{{classType}}" wx:for-index="id" wx:for-item="page" wx:key="id">
+    <view hidden="{{num != id}}" data-id="{{item.id}}" bindtap="toDetailPage">
+      <view class="list-item" wx:for="{{page}}">
+        <view>
           {{item}}
-          </view>
         </view>
-        </view>
-      </block>
-</view>
+      </view>
+    </view>
+  </block>
+  </view>
 
- <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <!-- <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
 
-<!--content-->
-<!--使用animation属性指定需要执行的动画-->
-<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
-  <!--drawer content-->
   <view class="drawer_content">
     <view class="drawer_title">
     <view>{{year}}年{{month}}月{{day}}日</view>
@@ -78,5 +91,4 @@
       <view class='confirm-btn' style='color:#13b5f5' bindtap='powerDrawer1'data-statu="close" >确定</view>
     </view>
   
-  </view>
- </view> 
+  </view> -->
