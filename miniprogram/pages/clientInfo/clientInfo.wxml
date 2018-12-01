@@ -24,7 +24,8 @@
 <view class="modal-footer">
   <view class="btn-confirm1" bindtap="submit" data-status="confirm">提交</view>
 </view>
-<button class="show-btn" bindtap="showDialogBtn">申请成为管理员</button> 
+<!-- <block wx:if = '{{flag == false}}'> </block> -->
+<button class="show-btn" bindtap="showDialogBtn" >申请成为管理员</button>
   <!--弹窗-->
   <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
   <view class="modal-dialog" wx:if="{{showModal}}">

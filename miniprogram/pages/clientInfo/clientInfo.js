@@ -3,12 +3,21 @@ var id
 wx.cloud.init()
 const db = wx.cloud.database()
 const _ = db.command
+var flag = false
 Page({
-  onLoad: function() {
+  onLoad: function () {
     wx.cloud.callFunction({
       name: 'login',
       complete: res => {
         id = res.result.OPENID
+        db.collection('user').where({
+          _openid: _.eq(id)
+        })
+        .get({
+          success: function (res) {
+            if (res.data[0].Identity == "Admin") flag = true
+          }
+        })
       }
     })
   },
@@ -16,9 +25,11 @@ Page({
     hiddenmodalput: true,
     pwd:'nihao',
     userName: '1',
-    userNum: '1'
+    userNum: '1',
+    // ifhidden: false
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
   },
+
   submit: function (e) {
     var nname = this.data.userName
     var nnum = this.data.userNum
@@ -60,7 +71,14 @@ Page({
     })
   },
   showDialogBtn: function () {
-
+    if (flag == true) {
+      wx.showToast({
+        title: '您是管理员',
+        icon: 'success',
+        duration: 2000
+      })
+      return;
+    }
     this.setData({
       showModal: true
     })
