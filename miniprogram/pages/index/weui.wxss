@@ -68,13 +68,12 @@ icon {
 .weui-cell:before {
   content: " ";
   position: absolute;
-  left: 0;
   top: 0;
   right: 0;
   height: 1px;
   border-top: 1rpx solid #D9D9D9;
   color: #D9D9D9;
-  left: 15px;
+  left: 0;
 }
 .weui-cell:first-child:before {
   display: none;
@@ -698,16 +697,18 @@ icon {
   }
 }
 .weui-badge {
+  width: 30%;
   display: inline-block;
-  padding: .15em .4em;
+  padding: 25rpx;
   min-width: 8px;
-  border-radius: 18px;
-  background-color: #F43530;
+  border-radius: 15px;
   color: #FFFFFF;
   line-height: 1.2;
   text-align: center;
-  font-size: 12px;
-  vertical-align: middle;
+  font-size: 15px;
+  vertical-align: top;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
 }
 .weui-badge_dot {
   padding: .4em;

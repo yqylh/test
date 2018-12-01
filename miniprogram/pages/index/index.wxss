@@ -7,11 +7,14 @@ page {
   line-height: 1.6;
 }
 .page-body{
+  width: 100%;
   padding-top: 60rpx;
 }
 .page-section{
+  padding-bottom:100rpx;
   width: 100%;
-  margin-bottom: 60rpx;
+  margin-bottom: 70rpx;
+  border-bottom-style: inset;
 }
 .page-section_center{
   display: flex;
@@ -27,7 +30,7 @@ page {
 }
 .page-section-spacing{
   box-sizing: border-box;
-  padding: 0 80rpx;
+  padding: 0 20rpx 40rpx 20rpx;
 }
 .page-section-title{
   font-size: 28rpx;
@@ -88,7 +91,7 @@ page {
 }
 
 button{
-  margin-bottom: 30rpx;
+  margin-bottom: 10rpx;
 }
 button:last-child{
   margin-bottom: 0;
@@ -99,6 +102,7 @@ button:last-child{
 .swiper-item{
   display: block;
   height: 150px;
+  border-bottom-style: solid;
 }
 .page-section-title{
   margin-top: 60rpx;
@@ -113,4 +117,18 @@ button:last-child{
 .page-foot{
   margin-top: 50rpx;
 }
-
+.list-item {
+  width: 90%;
+  margin: 30rpx 2%;
+  padding: 5px 10px 6px;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  background-color :#87CEFF
+}
+.wait {
+  background-color: #33ccff
+}
+.his{
+  background-color: #A0522D
+}

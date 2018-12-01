@@ -4,7 +4,7 @@
     <view class="page-section page-section-spacing swiper">
       <swiper
         indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
-        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px" >
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
             <view class="swiper-item {{item}}"></view>
@@ -12,56 +12,52 @@
         </block>
       </swiper>
     </view>
-    <view class="page-section" style="margin-top: 40rpx;margin-bottom: 0;">
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_switch">
-          <view class="weui-cell__bd">指示点</view>
-          <view class="weui-cell__ft">
-            <switch checked="{{indicatorDots}}" bindchange="changeProperty" data-property-name="indicatorDots" />
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_switch">
-          <view class="weui-cell__bd">自动播放</view>
-          <view class="weui-cell__ft">
-            <switch checked="{{autoplay}}" bindchange="changeProperty" data-property-name="autoplay" />
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_switch">
-          <view class="weui-cell__bd">衔接滑动</view>
-          <view class="weui-cell__ft">
-            <switch checked="{{circular}}" bindchange="changeProperty" data-property-name="circular" />
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_switch">
-          <view class="weui-cell__bd">竖向</view>
-          <view class="weui-cell__ft">
-            <switch checked="{{vertical}}" bindchange="changeProperty" data-property-name="vertical" />
-          </view>
-        </view>
-      </view>
+    <view class='float-box'>  
+      <button class='weui-badge' style="background-color:#1AAD19" bindtap='showOrdlist' >  
+        <text>已参加</text>
+      </button>
+      <button class='weui-badge' style="background-color:#33ccff" bindtap='showWaitlist' > 
+        <text>待审核</text>
+      </button>
+      <button class='weui-badge' style="background-color:#A0522D" bindtap='showHis' > 
+        <text>历史申请</text>
+      </button>
     </view>
 
-    <view class="page-section page-section-spacing">
-      <view class="page-section-title">
-        <text>幻灯片切换时长(ms)</text>
-        <text class="info">{{duration}}</text>
+    <view>
+      <view hidden='{{open[0]}}'>
+       <block class='ordList' wx:for="{{ordList}}" wx:key="id">
+        <view wx:if="{{item.id=='0' && ((item.from < curtime && item.end > curtime)||true)}}" style='background-color:#ccff66' class="list-item " data-id="{{item.id}}" bindtap="toDetailPage"> 
+        ///对第一个进行判断并渲染
+         <view class="content">
+          <text>正在进行:\n{{item}}</text>
+         </view>
+        </view>
+        <view class="list-item " data-id="{{item.id}}" bindtap="toDetailPage">
+         <view class="content">
+          <text>{{item}}</text>
+         </view>
+        </view>
+       </block>
       </view>
-      <slider value="{{duration}}" min="500" max="2000" bindchange="changeProperty" data-property-name="duration" />
-      <view class="page-section-title">
-        <text>自动播放间隔时长(ms)</text>
-        <text class="info">{{interval}}</text>
+      <view hidden='{{open[1]}}'>
+        <block class='waitList' wx:for="{{waitList}}" wx:key="id">
+        <view class="list-item wait" data-id="{{item.id}}" bindtap="toDetailPage">
+         <view class="content">
+          <text>{{item}}</text>
+         </view>
+        </view>
+       </block>
       </view>
-      <slider value="{{interval}}" min="2000" max="10000" bindchange="changeProperty" data-property-name="interval" />
-      <view class="page-section-title">
-        <text>前边距(px)</text>
-        <text class="info">{{previousMargin}}</text>
+      <view hidden='{{open[2]}}'>
+        <block class='hisList' wx:for="{{hisList}}" wx:key="id">
+        <view class="list-item his" data-id="{{item.id}}" bindtap="toDetailPage">
+         <view class="content">
+          <text>{{item}}</text>
+         </view>
+        </view>
+       </block>
       </view>
-      <slider value="{{previousMargin}}" min="0" max="50" bindchange="changeProperty" data-property-name="previousMargin" />
-      <view class="page-section-title">
-        <text>后边距(px)</text>
-        <text class="info">{{nextMargin}}</text>
-      </view>
-      <slider value="{{nextMargin}}" min="0" max="50" bindchange="changeProperty" data-property-name="nextMargin" />
     </view>
   </view>
 </view>
