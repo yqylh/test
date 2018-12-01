@@ -9,28 +9,32 @@
     "pages/chooseLib/chooseLib",
     "pages/preordain/preordain",
     "pages/my/my",
-    "pages/clientInfo/clientInfo"
+    "pages/clientInfo/clientInfo",
+    "pages/versionInfo/versionInfo"
   ],
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "主页",
-      "iconPath": "./images/1.png",
-      "selectedIconPath": "./images/0.png"
-    }, {
-      "pagePath": "pages/preordain/preordain",
-      "text" : "预定",
-      "iconPath": "./images/2.png",
-      "selectedIconPath": "./images/0.png"
-    }, {
-      "pagePath": "pages/my/my",
-      "text": "我的",
-      "iconPath": "./images/3.png",
-      "selectedIconPath": "./images/0.png"
-    }],
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "./images/1.png",
+        "selectedIconPath": "./images/0.png"
+      },
+      {
+        "pagePath": "pages/preordain/preordain",
+        "text": "预定",
+        "iconPath": "./images/2.png",
+        "selectedIconPath": "./images/0.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./images/3.png",
+        "selectedIconPath": "./images/0.png"
+      }
+    ],
     "selectedColor": "#000000",
     "color": "#BFBFBF"
-
   },
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -39,6 +43,5 @@
     "navigationBarTitleText": "会议室管理系统",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
-    
   }
 }

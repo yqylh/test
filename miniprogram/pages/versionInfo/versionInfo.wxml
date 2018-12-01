@@ -1,0 +1,7 @@
+<!--miniprogram/pages/versionInfo/versionInfo.wxml-->
+<view class='container'>
+  <text class='div1'>
+    山东大学会议室管理系统V1.0
+    made by RF-RM
+  </text>
+</view> 

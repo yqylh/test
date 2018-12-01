@@ -33,7 +33,7 @@
       </navigator>
   </view>
   <view class='uploader'>
-      <navigator class='uploader-text' url='../clientInfo/clientInfo'>
+      <navigator class='uploader-text' url='../versionInfo/versionInfo'>
         版本信息
       </navigator>
   </view>
