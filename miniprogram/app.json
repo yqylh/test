@@ -11,7 +11,8 @@
     "pages/my/my",
     "pages/clientInfo/clientInfo",
     "pages/versionInfo/versionInfo",
-    "pages/detailPage/detailPage"
+    "pages/detailPage/detailPage",
+    "pages/apply/apply"
   ],
   "tabBar": {
     "list": [
