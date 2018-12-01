@@ -1,5 +1,58 @@
 @import "./weui.wxss";
+.modal-btn-wrapper{
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-top: 2rpx solid rgba(7,17,27,0.1);
+}
 
+.cancel-btn, .confirm-btn{
+  flex: 1;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.cancel-btn{
+  border-right: 2rpx solid rgba(7,17,27,0.1);
+}
+/*mask*/
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+}
+/*content*/
+.drawer_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  background: #fff;
+}
+.drawer_content {
+  padding: 20rpx 40rpx;
+  height: 800rpx;
+  overflow-y: scroll;
+}
+.drawer_title{
+  padding:5rpx;
+  font:42rpx "microsoft yahei";
+  text-align: center;
+}
+.line{
+  border-bottom: 1px solid #f8f8f8;
+}
 page {
   background-color: #F8F8F8;
   height: 100%;
@@ -132,7 +185,6 @@ button:last-child{
 .his{
   background-color: #A0522D
 }
-
 .btn {  
   width: 80%;  
   padding: 20rpx 0;  
@@ -235,3 +287,7 @@ radio{
 .col-1 {-webkit-box-flex:1;box-flex:1;}  
 .fl { float: left;}  
 .fr { float: right;}
+.intro {
+  margin: 30px;
+  text-align: center;
+}

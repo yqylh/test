@@ -1,5 +1,5 @@
 <!--pages/clientInfo/clientInfo.wxml-->
-<form bindsubmit="formBindsubmit" bindreset="formReset">
+<!-- <form bindsubmit="formBindsubmit" bindreset="formReset">
   <view style="display:flex;">
     <label>姓名：</label>
     <input name="userName" placeholder="请输入姓名" />
@@ -11,10 +11,32 @@
   <view style="display:flex;margin-top:30px;">
     <button style="width:100%;" formType="submit" >提交</button>
   </view>
-</form>
-<view class="container" class="zn-uploadimg">
-	<button type="primary"bindtap="modalinput">申请成为管理员</button> 
+</form> -->
+
+<view class="modal-content">
+  <view class="modal-input">
+    <input placeholder-class="input-holder" type = "string" bindinput="getname" class="input" placeholder="姓名"></input>
+  </view>
+  <view class="modal-input">
+    <input placeholder-class="input-holder" type = "string" bindinput="getnum" class="input" placeholder="学工号"></input>
+  </view>
 </view>
-<modal hidden="{{hiddenmodalput}}" title="请输入管理员ID" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">
-    <input type='text'placeholder="请输入内容" auto-focus/>
-</modal>
+<view class="modal-footer">
+  <view class="btn-confirm1" bindtap="submit" data-status="confirm">提交</view>
+</view>
+<!-- <block wx:if = '{{flag == false}}'> </block> -->
+<button class="show-btn" bindtap="showDialogBtn" >申请成为管理员</button>
+  <!--弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">请输入管理员秘钥</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <input placeholder-class="input-holder" type = "string" bindinput="getmi" class="input" placeholder="秘钥"></input>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
