@@ -3,33 +3,22 @@ const app = getApp()
 wx.cloud.init()
 const db = wx.cloud.database()
 
+var curtime = Date.parse(new Date());  
 Page({
     data: {
     background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
-    indicatorDots: false,
+    indicatorDots: true,
     vertical: false,
-    autoplay: false,
-    circular: false,
+    autoplay: true,
+    circular: true,
     interval: 2000,
     duration: 500,
     previousMargin: 0,
-    nextMargin: 0
-  },
-  changeProperty: function (e) {
-    var propertyName = e.currentTarget.dataset.propertyName
-    var newData = {}
-    newData[propertyName] = e.detail.value
-    this.setData(newData)
-  },
-  changeIndicatorDots: function (e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots
-    })
-  },
-  changeAutoplay: function (e) {
-    this.setData({
-      autoplay: !this.data.autoplay
-    })
+    nextMargin: 0,
+    open:[false,true,true],
+    ordList:['test1','test2\n换行'],
+    waitList:['waiting one','waiting two','waiting tree'],
+    hisList:['his1','his2']
   },
   intervalChange: function (e) {
     this.setData({
@@ -39,6 +28,21 @@ Page({
   durationChange: function (e) {
     this.setData({
       duration: e.detail.value
+    })
+  },
+  showOrdlist: function(){
+    this.setData({
+      open: [false, true, true]
+    })
+  },
+  showWaitlist: function (e) {
+    this.setData({
+      open: [true, false, true]
+    })
+  },
+  showHis: function (e) {
+    this.setData({
+      open: [true, true, false]
     })
   },
   onLoad: function () {
