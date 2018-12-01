@@ -1,4 +1,4 @@
-//index.js
+  //index.js
 const app = getApp()
 wx.cloud.init()
 const db = wx.cloud.database()

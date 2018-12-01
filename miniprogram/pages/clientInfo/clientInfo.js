@@ -106,7 +106,7 @@ Page({
    * 对话框确认按钮点击事件
    */
   onConfirm: function () {
-    var truepwd = "sddaqdxqn3hys"
+    var truepwd = "sddxqdxqn3hys"
     if (truepwd == this.data.pwd) {
       db.collection('user').where({
         _openid: _.eq(id)
