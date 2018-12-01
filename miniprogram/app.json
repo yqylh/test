@@ -9,7 +9,8 @@
     "pages/chooseLib/chooseLib",
     "pages/preordain/preordain",
     "pages/my/my",
-    "pages/clientInfo/clientInfo"
+    "pages/clientInfo/clientInfo",
+    "pages/selectDate/selectDate"
   ],
   "tabBar": {
     "list": [{
