@@ -36,7 +36,21 @@ Page({
     showContStatus: false,
   },
 
- 
+  showType: function () {
+    var myThis = this;
+    wx.showActionSheet({
+      itemList: ['大', '中', '小'],
+      success: function (res) {
+        myThis.setData({
+          num: res.tapIndex + 1
+        })
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      },
+    })
+
+  },
   /**
    * 对话框确认按钮点击事件
    */
