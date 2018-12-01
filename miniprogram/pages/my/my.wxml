@@ -28,9 +28,9 @@
       </navigator>
   </view>
   <view class='uploader'>
-      <navigator class='uploader-text' url='../clientInfo/clientInfo'>
-        反馈
-      </navigator>
+      <view class='uploader-text' >
+      <button open-type='contact' class='contact'>反馈</button>
+      </view>
   </view>
   <view class='uploader'>
       <navigator class='uploader-text' url='../versionInfo/versionInfo'>

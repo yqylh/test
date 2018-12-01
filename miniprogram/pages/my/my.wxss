@@ -143,3 +143,18 @@ page {
   font-size: 20rpx;
   color: #222;
 }
+button::after{
+  border: none;
+}
+.contact{
+  width: 100%;
+  background: #fff;
+  border-left: none;
+  border-right: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 300ms ease;
+  font-size: 34rpx;
+  color: #007aff;
+}
