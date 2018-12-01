@@ -51,6 +51,11 @@ Page({
       url: '../detailPage/detailPage?id='+id+'?title=会议详情',
     })
   },
+  share:function(e){
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
   onLoad: function () {
     if (!wx.cloud) {
       wx.redirectTo({
