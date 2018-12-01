@@ -26,15 +26,17 @@ Page({
             name: e.detail.value.userName,
             usernum: e.detail.value.userNum
           },
-        })
+          })
+          
+          wx.switchTab({
+            url: '../my/my',
+          })
+          wx.showToast({
+            title: '提交成功',
+          })
         }
     })
-    wx.showToast({
-      title: '提交成功',
-    })
-    wx.redirectTo({
-      url: '../index/index',
-    })
+
   },
   /**
    * 组件的方法列表

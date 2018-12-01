@@ -1,4 +1,5 @@
 //app.js
+var id
 App({
   onLaunch: function () {
     if (!wx.cloud) {
