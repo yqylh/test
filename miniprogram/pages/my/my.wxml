@@ -22,19 +22,15 @@
         我的资料
       </navigator>
   </view>
-  <view class='uploader'>
-      <navigator class='uploader-text' url='../clientInfo/clientInfo'>
-        最近文件
-      </navigator>
-  </view>
-  <view class='uploader'>
-      <navigator class='uploader-text' url='../clientInfo/clientInfo'>
-        反馈
-      </navigator>
-  </view>
+
   <view class='uploader'>
       <navigator class='uploader-text' url='../versionInfo/versionInfo'>
         版本信息
       </navigator>
+  </view>
+    <view class='uploader'>
+      <view class='uploader-text' >
+      <button open-type='contact' class='contact'>反馈</button>
+      </view>
   </view>
 </view>

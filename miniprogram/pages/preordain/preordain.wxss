@@ -47,8 +47,10 @@
 }
 .drawer_title{
   padding:5rpx;
-  font:42rpx "microsoft yahei";
-  text-align: center;
+  margin: 0;
+  font:47rpx "microsoft yahei";
+  text-align: left;
+  left: 0;
 }
 .line{
   border-bottom: 1px solid #f8f8f8;
