@@ -1,4 +1,5 @@
 // miniprogram/pages/detailPage/detailPage.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -12,8 +13,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var id = options.id;
-    
+    var id = options.id
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        id = res.result.OPENID
+      }
+    })
+    db.collection('user').where({
+      _openid: id // 填入当前用户 openid
+    }).get({
+      success: function (res) {
+        console.log(res.data[0].paticipate)
+      }
+    })
   },
 
   /**

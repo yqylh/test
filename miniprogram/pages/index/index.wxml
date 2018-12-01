@@ -37,7 +37,7 @@
         <view class="list-item " data-id="{{item.id}}" >
          <view class="content">
           <view bindtap="toDetailPage">{{item}}</view>
-          <button bindtap='share' class='share' open-type="share">转发详情</button>
+          <button bindtap='share' class='share' >转发详情</button>
          </view>
         </view>
        </block>

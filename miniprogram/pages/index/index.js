@@ -52,8 +52,8 @@ Page({
     })
   },
   share:function(e){
-    wx.showShareMenu({
-      withShareTicket: true
+    wx.navigateTo({
+      url: '../detailPage/detailPage',
     })
   },
   onLoad: function () {
