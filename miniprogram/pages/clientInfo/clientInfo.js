@@ -13,9 +13,14 @@ Component({
   data: {
     hiddenmodalput: true,
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
+    userName: '用户名：',
+    psw: '密码：'
   },  //点击按钮痰喘指定的hiddenmodalput弹出框
   
-
+  submit: function (e) {
+    userName: e.detail.value.userName;
+    psw: e.detail.value.psw;
+  },
   /**
    * 组件的方法列表
    */

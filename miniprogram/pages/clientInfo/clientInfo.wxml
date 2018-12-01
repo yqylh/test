@@ -1,6 +1,18 @@
 <!--pages/clientInfo/clientInfo.wxml-->
+<view style="display:flex;">
+  <label>姓名：</label>
+  <input name="userName" placeholder="请输入姓名" />
+</view>
+<view style="display:flex;">
+  <label>学工号：</label>
+  <input name="psw" placeholder="请输入学工号"/>
+</view>
+<view style="display:flex;margin-top:30px;">
+  <button style="width:50%;" bindtap="submit" >提交</button>
+</view>
+
 <view class="container" class="zn-uploadimg">
-	<button type="primary"bindtap="modalinput">modal有输入框</button> 
+	<button type="primary"bindtap="modalinput">申请成为管理员</button> 
 </view>
 <modal hidden="{{hiddenmodalput}}" title="请输入管理员ID" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">
     <input type='text'placeholder="请输入内容" auto-focus/>

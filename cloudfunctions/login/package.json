@@ -1,14 +1,18 @@
 {
   "name": "login",
   "version": "1.0.0",
-  "description": "",
+  "description": "testlogin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "yqy",
   "license": "ISC",
   "dependencies": {
     "wx-server-sdk": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/yqylh/test"
   }
 }
