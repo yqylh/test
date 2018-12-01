@@ -61,6 +61,22 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+      
+  },
+  confirm:function(e){
+    if(true){
+      wx.showToast({
+        title: '申请成功!',
+        icon:'success',
+        wx.navigateTo({
+          url: '../preoderain/preoderain',
+        })
+      })
+    }else {
+      wx.showToast({
+        title: '该房间已被申请!',
+        icon: 'fail',
+      })
+    }
   }
 })

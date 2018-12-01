@@ -243,6 +243,10 @@ Page({
       leastCont: e.detail.value.least,
       mostCont: e.detail.value.most,
     })
-
+  },
+  toDetail:function(){
+    wx.navigateTo({
+      url: '../apply/apply',
+    })
   }
 })

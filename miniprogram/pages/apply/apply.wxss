@@ -1,1 +1,54 @@
 /* miniprogram/pages/apply/apply.wxss */
+textarea {
+  width: 700rpx;
+  border-style: solid;
+  border-width: 1rpx;
+  border-color: #999999;
+}
+
+.textarea-wrp {
+  padding-top: 0;
+  background-color: #fff;
+}
+
+.page-section{
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+
+.page-section:last-child{
+  margin-bottom: 0;
+}
+
+.page-section-title{
+  font-size: 50rpx;
+  font-weight: 100;
+  color: #000000;
+  margin-bottom: 10px;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.body-view{
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+.d1{
+  float: left;
+  margin: 20rpx;
+}
+.d2{
+  float: left;
+    margin: 10rpx;
+}
+switch{
+  float: left;
+}
+.confirm{
+  position: relative;
+  top:100rpx;
+  height: 100rpx;
+  width:70%;
+  background-color: #FF3030	;
+  color: #FFFFFF;
+}

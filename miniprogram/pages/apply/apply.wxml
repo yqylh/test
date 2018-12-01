@@ -1,4 +1,23 @@
 <!--miniprogram/pages/apply/apply.wxml-->
 <view class='container'>
-  
+  <view class="page-section">
+    <view class="page-section-title">会议主题:</view>
+    <view class="textarea-wrp">
+      <textarea auto-focus="true" style="height: 3em" />
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="page-section-title">会议内容:</view>
+    <view class="textarea-wrp">
+      <textarea auto-focus="true" style="height: 10em" show-confirm-bar='true' />
+    </view>
+    <view class="body-view">
+      <switch bindchange="switch1Change" />
+      <view class='d1'>需要多媒体</view>
+      <switch bindchange="switch2Change" />
+      <view class='d2'>需要茶水</view>
+    </view>
+    <button form-type='submit' class='confirm' bindtap='confirm'>确定申请!</button>
+  </view>
 </view>

@@ -58,7 +58,7 @@
   <block wx:for-items="{{classType}}" wx:for-index="id" wx:for-item="page" wx:key="id">
     <view hidden="{{num != id}}" data-id="{{item.id}}" bindtap="toDetailPage">
       <view class="list-item" wx:for="{{page}}">
-        <view>
+        <view bindtap='toDetail'>
           {{item}}
         </view>
       </view>
