@@ -1,0 +1,8 @@
+<!--pages/share/share.wxml-->
+<view class='title'> {{"主题 " + title}} </view>
+<view class='time'> {{"开始时间 " + from}} </view>
+<view class='where'> {{"位置 " + where}} </view>
+<view class='who'> {{"主办人 "+ whouse}} </view>
+<view class='int'> {{"介绍 " + Introduction}} </view>
+<button bindtap='join' hidden='{{flag}}'> 参与会议 </button>
+<button open-type='share'> 邀请参加 </button>

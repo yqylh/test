@@ -52,8 +52,9 @@ Page({
     })
   },
   share:function(e){
-    wx.showShareMenu({
-      withShareTicket: true
+    var id = "2018_12_1_1"
+    wx.navigateTo({
+      url: '../share/share?id=' + id,
     })
   },
   onLoad: function () {
@@ -78,6 +79,9 @@ Page({
                 db.collection('user').add({
                   data: {
                     Identity: "Teacher",
+                    name: "",
+                    participate: {},
+                    usernum: ""
                   }
                 })
                 // console.log("添加成功")
