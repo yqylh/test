@@ -8,12 +8,12 @@ page {
 }
 .page-body{
   width: 100%;
-  padding-top: 60rpx;
+  padding-top: 30rpx;
 }
 .page-section{
   padding-bottom:100rpx;
   width: 100%;
-  margin-bottom: 70rpx;
+  margin-bottom: 25rpx;
   border-bottom-style: inset;
 }
 .page-section_center{
@@ -30,7 +30,7 @@ page {
 }
 .page-section-spacing{
   box-sizing: border-box;
-  padding: 0 20rpx 40rpx 20rpx;
+  padding: 0 10rpx 20rpx 10rpx;
 }
 .page-section-title{
   font-size: 28rpx;
