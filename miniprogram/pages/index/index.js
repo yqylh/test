@@ -57,37 +57,23 @@ Page({
       complete: res => {
         // console.log('callFunction test result: ', res.result.OPENID)
         var id = res.result.OPENID
-        console.log(id)
+        // console.log(id)
         const _ = db.command
         db.collection('user').where({
           _openid: _.eq(id)
         }).get({
             success: function (res) {
-              if (res.data.length != 0) console.log(res.data)
-              else {
+              if (res.data.length == 0) {
                 db.collection('user').add({
                   data: {
                     Identity: "Teacher",
                   }
                 })
-                console.log("添加成功")
+                // console.log("添加成功")
               }
             },
           })
       }
     })
-  // wx.getSetting({
-  //   success: res => {
-  //     // if (!res.authSetting['scope.userInfo']) {
-
-  //     // }
-  //     // wx.getUserInfo({
-  //     //   success: res => {
-  //     //     var x = res.userInfo;
-  //     //     console.log(x)
-  //     //   }
-  //     // })
-  //   }
-  // })
   },
 })

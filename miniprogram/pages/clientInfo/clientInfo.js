@@ -1,30 +1,44 @@
 // pages/clientInfo/clientInfo.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    
-  },
+var id
+wx.cloud.init()
+const db = wx.cloud.database()
+Page({
 
-  /**
-   * 组件的初始数据
-   */
   data: {
     hiddenmodalput: true,
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
-    userName: '用户名：',
-    psw: '密码：'
-  },  //点击按钮痰喘指定的hiddenmodalput弹出框
-  
-  submit: function (e) {
-    userName: e.detail.value.userName;
-    psw: e.detail.value.psw;
+  },
+  formBindsubmit: function (e) {
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        id = res.result.OPENID
+      }
+    })
+    const _ = db.command
+    db.collection('user').where({
+      _openid: _.eq(id)
+    })
+      .get({
+        success: function (res) {
+          db.collection('user').doc(res.data[0]._id).update({
+          data: {
+            name: e.detail.value.userName,
+            usernum: e.detail.value.userNum
+          },
+        })
+        }
+    })
+    wx.showToast({
+      title: '提交成功',
+    })
+    wx.redirectTo({
+      url: '../index/index',
+    })
   },
   /**
    * 组件的方法列表
    */
-  methods: {
     modalinput: function () {
       this.setData({
         hiddenmodalput: !this.data.hiddenmodalput
@@ -42,5 +56,4 @@ Component({
         hiddenmodalput: true
       })
   }
-}
 })
