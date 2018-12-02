@@ -28,6 +28,12 @@
         版本信息
       </navigator>
   </view>
+
+    <view class='uploader' hidden='{{identity!="Admin"}}'>
+      <navigator class='uploader-text' style='color:#ff6633;' url='../admin/admin'>
+        申请管理
+      </navigator>
+    </view>
     <view class='uploader'>
       <view class='uploader-text' >
       <button open-type='contact' class='contact'>反馈</button>

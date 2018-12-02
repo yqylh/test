@@ -10,6 +10,8 @@
   <button class='weui-badge' style="background-color:#00a381" bindtap='showCont' data-statu="open">
     <text>容纳人数</text>
   </button>
+  <view class='list-item' style="font-size:35rpx;background-color:#F8F8F8;">{{year}} 年 {{month}} 月 {{day}} 日</view>
+  <view class='list-item' style="font-size:35rpx;background-color:#F8F8F8;" hidden='{{!leastCont||!mostCont}}'>期望容纳:{{leastCont}} 到 {{mostCont}} 人</view>
 
   <form animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}" >
     <view class="drawer_cont">
@@ -43,14 +45,14 @@
     <view class="drawer_content">
       <view class="top grid">
         <label class="title col-0">最少容纳</label>
-        <input class="input_base input_h30 col-1" name="least"></input>
+        <input class="input_base input_h30 col-1" name="least" placeholder='{{leastCont}}'></input>
       </view>
       <view class="top grid">
         <label class="title col-0">最多容纳</label>
-        <input class="input_base input_h30 col-1" name="most"></input>
+        <input class="input_base input_h30 col-1" name="most" placeholder='{{mostCont}}'></input>
       </view>
     </view>
-    <button class="btn_ok" bindtap="showCont" data-statu="close" form-type="submit">确定</button>
+    <button class="btn_ok" data-statu="close" form-type="submit">确定</button>
   </form>
 
 
