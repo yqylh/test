@@ -20,8 +20,8 @@ Page({
     nextMargin: 0,
     open:[false,true,true],
     ordList:[],
-    waitList:['waiting one','waiting two','waiting tree'],
-    hisList:['his1','his2'],
+    waitList:[],
+    hisList:[],
   },
   intervalChange: function (e) {
     this.setData({
@@ -105,19 +105,46 @@ Page({
           _id = res.data[0]._id
           attend = res.data[0].participate
           // console.log(attend)
+          var date2 = new Date;
+          // console.log(date2)
           for (var i = 1; i < attend.length; i++) {
             db.collection('meeting').where({
-              time: _.eq(attend[i])
+              time: _.eq(attend[i]),
+              end: _.lt(date2),
+              check: _.eq(1)
             })
               .get({
                 success: function (res) {
-                  var date = new Date;
-                  console.log(date)
-                  for (var i = 0; i < 18; i++) console.log(res.date[0].from[i]);
-                  // Mythis.data.ordList.push("时间" + date + '地点'+ res.data[0].where + '主题' + res.data[0].title)
-                  //console.log('!' + Mythis.data.ordList.length)
+                  // console.log(res)
+                  Mythis.data.ordList.push('时间' + res.data[0].from + '地点'+ res.data[0].where + '主题' + res.data[0].title)
                   Mythis.setData({
                     ordList: Mythis.data.ordList,
+                  })
+                }
+              }),
+            db.collection('meeting').where({
+              time: _.eq(attend[i]),
+              check: _.eq(2)
+            })
+              .get({
+                success: function (res) {
+                  // console.log(res)
+                  Mythis.data.waitList.push('时间' + res.data[0].from + '地点' + res.data[0].where + '主题' + res.data[0].title)
+                  Mythis.setData({
+                    waitList: Mythis.data.waitList,
+                  })
+                }
+              }),
+            db.collection('meeting').where({
+              time: _.eq(attend[i]),
+              end: _.gt(date2)
+            })
+              .get({
+                success: function (res) {
+                  console.log(res)
+                  Mythis.data.hisList.push('时间' + res.data[0].from + '地点' + res.data[0].where + '主题' + res.data[0].title)
+                  Mythis.setData({
+                    hisList: Mythis.data.hisList,
                   })
                 }
               })
