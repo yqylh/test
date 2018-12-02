@@ -70,11 +70,10 @@ Page({
     years: years,
     months: months,
     days: days,
-    value: [0, 0, 0],
+    value: [0, s2-1, s3-1],
     background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
     showModalStatus: false,
     showContStatus: false,
-    
   },
 
   showType: function () {
