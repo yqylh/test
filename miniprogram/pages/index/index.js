@@ -75,7 +75,7 @@ Page({
         id = res.result.OPENID
         // console.log(id)
         db.collection('user').where({
-          _openid: _.eq(id)
+          _openid: id
         }).get({
           success: function (res) {
             if (res.data.length == 0) {
@@ -98,7 +98,7 @@ Page({
     var Mythis = this;
     var attend;
     db.collection('user').where({
-      _openid: _.eq(id)
+      _openid: id
     })
       .get({
         success: function (res) {
