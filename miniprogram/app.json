@@ -12,6 +12,7 @@
     "pages/clientInfo/clientInfo",
     "pages/versionInfo/versionInfo",
     "pages/apply/apply",
+    "pages/selectTime/selectTime",
     "pages/admin/admin"
   ],
   "tabBar": {
