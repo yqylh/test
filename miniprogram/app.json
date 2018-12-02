@@ -11,9 +11,9 @@
     "pages/my/my",
     "pages/clientInfo/clientInfo",
     "pages/versionInfo/versionInfo",
-    "pages/detailPage/detailPage",
     "pages/apply/apply",
-    "pages/selectTime/selectTime"
+    "pages/selectTime/selectTime",
+    "pages/admin/admin"
   ],
   "tabBar": {
     "list": [
@@ -45,6 +45,6 @@
     "navigationBarBackgroundColor": "#00BFFF",
     "navigationBarTitleText": "会议室管理系统",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": false
   }
 }

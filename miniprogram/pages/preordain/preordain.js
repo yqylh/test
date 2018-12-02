@@ -105,9 +105,6 @@ Page({
       this.setData({
         datename: b1 + '.' + b2 + '.' + b3
       })
-      wx.showToast({
-        title: '成功',
-      })
     }
     else {
       wx.showModal({
@@ -124,10 +121,7 @@ Page({
       })
     }
   },
-  showCont: function (e) {
-    var currentStatu = e.currentTarget.dataset.statu;
-    this.util_2(currentStatu)
-  },
+
   util: function (currentStatu) {
     /* 动画部分 */
     // 第1步：创建动画实例 
@@ -236,12 +230,32 @@ Page({
   },
   reg: function (e) {
     if (e.detail.value.least <= e.detail.value.most) {
+      this.setData({
+        showContStatus: false,
+      })
       //存入数据库
+    }
+    else {
+      this.setData({
+        showContStatus:true,
+      }),
+        wx.showToast({
+          title: '请检查输入!',
+          image: '../../images/关闭.png',
+        })
     }
     this.setData({
       leastCont: e.detail.value.least,
       mostCont: e.detail.value.most,
     })
-
-  }
+  },
+  toDetail:function(){
+    wx.navigateTo({
+      url: '../apply/apply',
+    })
+  },
+  showCont: function (e) {
+    var currentStatu = e.currentTarget.dataset.statu;
+    this.util_2(currentStatu)
+  },
 })

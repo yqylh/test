@@ -11,7 +11,7 @@ Page({
     }
     return {
       title: '欢迎参加会议',
-      path: '../share/share?id=' + meeting_id
+      path: '/pages/share/share?id=' + meeting_id
     }
   },
   onLoad: function (options) {
@@ -41,13 +41,11 @@ Page({
     where: "",
     whouse: "",
   },
-  methods: {
-
-  },
   join:function() {
     var Mythis = this
     var __id
     var id
+    var test
     wx.cloud.callFunction({
       name: 'login',
       complete: res => {
@@ -59,8 +57,38 @@ Page({
     })
       .get({
         success: function (res) {
+          if (res.data.length == 0) {
+            db.collection('user').add({
+              data: {
+                Identity: "Teacher",
+                name: "",
+                participate: [0],
+                usernum: ""
+              },
+              success:function(res){
+                __id = res._id
+              }
+            })
+            db.collection('user').doc(__id).update({
+              data: {
+                participate: _.push(meeting_id)
+              },
+              success: function (res) {
+                console.log(res)
+              }
+            })
+            wx.switchTab({
+              url: '../index/index',
+            })
+            wx.showToast({
+              title: '加入成功',
+              icon: 'success',
+              duration: 2000
+            })
+            return;
+          }
           __id = res.data[0]._id;
-          var test = res.data[0].participate;
+          test = res.data[0].participate;
           for (var i = 0; i < test.length; i++) {
             if (test[i] == meeting_id) {
               Mythis.setData({
@@ -82,7 +110,7 @@ Page({
               participate: _.push(meeting_id)
             },
             success: function (res) {
-              console.log(res.data)
+              console.log(res)
             }
           })
           wx.switchTab({
