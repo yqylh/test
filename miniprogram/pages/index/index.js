@@ -2,8 +2,11 @@
 const app = getApp()
 wx.cloud.init()
 const db = wx.cloud.database()
-
-var curtime = Date.parse(new Date());  
+const _ = db.command
+var curtime = Date.parse(new Date());
+var id
+var _id
+import regeneratorRuntime from '../regenerator-runtime/runtime.js';
 Page({
     data: {
     background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
@@ -18,7 +21,7 @@ Page({
     open:[false,true,true],
     ordList:['test1','test2\n换行'],
     waitList:['waiting one','waiting two','waiting tree'],
-    hisList:['his1','his2']
+    hisList:['his1','his2'],
   },
   intervalChange: function (e) {
     this.setData({
@@ -34,6 +37,7 @@ Page({
     this.setData({
       open: [false, true, true]
     })
+    // console.log(this.data.ordList)
   },
   showWaitlist: function (e) {
     this.setData({
@@ -46,10 +50,7 @@ Page({
     })
   },
   toDetailPage:function(e){
-    var id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '../detailPage/detailPage?id='+id+'?title=会议详情',
-    })
+    return;
   },
   share:function(e){
     var id = "2018_12_1_1"
@@ -57,6 +58,9 @@ Page({
       url: '../share/share?id=' + id,
     })
   },
+  // onShow: async function() {
+
+  // },
   onLoad: function () {
     if (!wx.cloud) {
       wx.redirectTo({
@@ -68,27 +72,55 @@ Page({
       name: 'login',
       complete: res => {
         // console.log('callFunction test result: ', res.result.OPENID)
-        var id = res.result.OPENID
+        id = res.result.OPENID
         // console.log(id)
-        const _ = db.command
         db.collection('user').where({
           _openid: _.eq(id)
         }).get({
-            success: function (res) {
-              if (res.data.length == 0) {
-                db.collection('user').add({
-                  data: {
-                    Identity: "Teacher",
-                    name: "",
-                    participate: [0],
-                    usernum: ""
-                  }
-                })
-                // console.log("添加成功")
-              }
-            },
-          })
+          success: function (res) {
+            if (res.data.length == 0) {
+              db.collection('user').add({
+                data: {
+                  Identity: "Teacher",
+                  name: "",
+                  participate: [0],
+                  usernum: ""
+                }
+              })
+              // console.log("添加成功")
+            }
+          },
+        })
       }
     })
+    while(id != null);
+    // console.log(23)
+    var Mythis = this
+    var attend
+    
+
+    db.collection('user').where({
+      _openid: _.eq(id)
+    })
+      .get({
+        success: function (res) {
+          _id = res.data[0]._id
+          attend = res.data[0].participate
+          // console.log(attend)
+          for (var i = 1; i < attend.length; i++) {
+            db.collection('meeting').where({
+              time: _.eq(attend[i])
+            })
+              .get({
+                success: function (res) {
+                  Mythis.data.ordList.push(res.data[0].from + res.data[0].where + res.data[0].title)
+                  console.log('!' + Mythis.data.ordList.length)
+                  console.log('!' + Mythis.data.ordList)
+              }
+            })
+          }
+        }
+      })
+    console.log(233)
   },
 })
