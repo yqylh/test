@@ -111,7 +111,10 @@ Page({
             })
               .get({
                 success: function (res) {
-                  Mythis.data.ordList.push(res.data[0].from + res.data[0].where + res.data[0].title)
+                  var date = new Date;
+                  console.log(date)
+                  for (var i = 0; i < 18; i++) console.log(res.date[0].from[i]);
+                  // Mythis.data.ordList.push("时间" + date + '地点'+ res.data[0].where + '主题' + res.data[0].title)
                   //console.log('!' + Mythis.data.ordList.length)
                   Mythis.setData({
                     ordList: Mythis.data.ordList,
