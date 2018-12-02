@@ -2,6 +2,7 @@
 wx.cloud.init()
 const db = wx.cloud.database()
 const _ = db.command
+var id
 import regeneratorRuntime from '../regenerator-runtime/runtime.js';
 Page({
 
@@ -20,6 +21,14 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        id = res.result.OPENID
+
+
+      }
+    })
   },
 
   /**
@@ -112,21 +121,18 @@ Page({
         },
         fail: console.error
       }),
-      wx.cloud.callFunction({
-        name: 'login',
-        complete: res => {
-          db.collection('user').where({
-            _openid: _.eq(res.result.OPENID)
+        db.collection('user').where({
+          _openid: _.eq(id)
+        })
+          .get({
+            success: function (res) {
+              db.collection('user').doc(res._id).update({
+                data: {
+                  participate:_.push(date22)
+                }
+              })
+            }
           })
-            .get({
-              success: function (res) {
-                res.data[0].participate.push(date22)
-                console.log(res)
-              }
-            })
-
-        }
-      })
       wx.navigateBack({
         url: '../index/index',
       }),

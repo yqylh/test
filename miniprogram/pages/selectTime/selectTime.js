@@ -81,7 +81,7 @@ Page({
     var pd
     var tt
     pd = 0;
-    bb = 0;
+    bb = 1;
     for (var i = 0; i < as.length; i++) {
       if (as[i] <= lnow && at[i] >= rnow) {
         bb = 1;
