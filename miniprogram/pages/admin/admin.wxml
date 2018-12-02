@@ -1,4 +1,4 @@
 <!--miniprogram/pages/admin/admin.wxml-->
-<view class="float-action" bindtap="ballClickEvent" style="opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;" bindtouchmove="ballMoveEvent">历史信息
+<view class="float-action" bindtap="ballClickEvent" style="opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;" bindtouchmove="ballMoveEvent">
 </view>
 <view class="slide-mask" style="display:{{maskDisplay}}" bindtap="slideCloseEvent"></view>

@@ -11,7 +11,6 @@
     "pages/my/my",
     "pages/clientInfo/clientInfo",
     "pages/versionInfo/versionInfo",
-    "pages/detailPage/detailPage",
     "pages/apply/apply",
     "pages/admin/admin"
   ],
