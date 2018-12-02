@@ -45,6 +45,6 @@
     "navigationBarBackgroundColor": "#00BFFF",
     "navigationBarTitleText": "会议室管理系统",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": false
+    "enablePullDownRefresh": true
   }
 }

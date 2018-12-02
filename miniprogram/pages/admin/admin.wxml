@@ -19,7 +19,7 @@
         <view class="page-section-title" style="color:#000000">会议室容纳量(人数):
         </view>
          <view class="textarea-wrp">
-            <input auto-focus="true" value='{{meetingCont}}' bindblur='getCont' style="height: 3em " />
+            <input auto-focus="true" type='Number' value='{{meetingCont}}' bindblur='getCont' style="height: 3em " />
           </view>
           <button form-type='submit' class='confirm' bindtap='confirm' style="background:#FF7F00">确定添加</button>
       </view>

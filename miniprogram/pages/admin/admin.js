@@ -24,7 +24,7 @@ Page({
 
     hid:[],
 
-    meetingContent:'',
+    meetingContent:0,
     meetingName:''
   },
 
