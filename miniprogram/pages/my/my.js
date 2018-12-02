@@ -55,7 +55,7 @@ Page({
         success: function (res) {
           st = res.data[0].Identity
           myThis.setData({
-            identity: 'Admin'
+            identity: ''
           })
         }
       })

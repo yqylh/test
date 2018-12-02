@@ -2,3 +2,38 @@
 <view class="float-action" bindtap="ballClickEvent" style="opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;" bindtouchmove="ballMoveEvent">
 </view>
 <view class="slide-mask" style="display:{{maskDisplay}}" bindtap="slideCloseEvent"></view>
+<view class="slide-menu" style="right: {{slideRight}}px;width: {{slideWidth}}px;height:{{slideHeight}}px;" animation="{{slideAnimation}}">
+  <icon type="cancel" size="30" class="close-btn" color="#FFF" bindtap="slideCloseEvent" />
+  <scroll-view scroll-y="true" style="height:100%;width:100%">
+    <view class="header">
+      <view class="userinfo" bindtap="authorShowEvent">
+        <image src="{{avatarUrl}}" class="avatar"></image>
+        <text>{{nickName}}</text>
+      </view>
+      <view class="page-section-title" style="color:#000000 border-bottom-width:5px;">添加会议室:</view>
+      <view class="page-section-title" style="color:#000000 ">会议室名称:</view>
+      <view class="textarea-wrp">
+        <input auto-focus="true" value='{{meetingName}}' bindblur='getName' style="height: 3em" />
+      </view>
+      <view class="page-section">
+        <view class="page-section-title" style="color:#000000">会议室容纳量(人数):
+        </view>
+         <view class="textarea-wrp">
+            <input auto-focus="true" value='{{meetingCont}}' bindblur='getCont' style="height: 3em " />
+          </view>
+          <button form-type='submit' class='confirm' bindtap='confirm' style="background:#FF7F00">确定添加</button>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class='editors'>
+  <text>待审核申请列表:</text>
+</view>
+<block class='waitList' wx:for="{{waitList}}" wx:key="*this" wx:for-item="id">
+  <view class="list-item wait" hidden="{{hid[id]}}">
+    {{item}}
+    <button style='background-color:#33cc66' data-value="{{item}}" data-id="{{id}}" bindtap='pass'>通过申请</button>
+    <button style='background-color:#FF6A6A' data-value="{{item}}" data-id="{{id}}" bindtap='reject'>拒绝</button>
+  </view>
+</block>
+<view class="slide-mask" style="display:{{maskDisplay}}" bindtap="slideCloseEvent"></view>

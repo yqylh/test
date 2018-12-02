@@ -31,7 +31,7 @@
 
     <view class='uploader' hidden='{{identity!="Admin"}}'>
       <navigator class='uploader-text' style='color:#ff6633;' url='../admin/admin'>
-        申请管理
+        管理信息
       </navigator>
     </view>
     <view class='uploader'>

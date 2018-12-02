@@ -1,4 +1,5 @@
 // miniprogram/pages/apply/apply.js
+const db = wx.cloud.database()
 Page({
 
   /**
