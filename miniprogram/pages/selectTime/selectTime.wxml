@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="cont">
+   <view>今日可选时段</view>
+   <view wx:for="{{arrays}}"wx:for-index="i"wx:for-item="it">
+      <view wx:for="{{arrayt}}" wx:for-index="j"wx:for-item="jt">
+        <view wx:if="{{i == j}}">
+         {{it}}:00~{{jt}}:00
+        </view>
+      </view>
+   </view>
+  </view>
+  <view class="timetable">
+    <text>{{leftV}}</text>
+    <text class="info">{{rightV}}</text>
+  </view>
+  <view class='twoSlider'>
+     <slider min='{{leftMin}}' max='{{leftMax}}' value='{{leftValue}}' activeColor='#cecacb' backgroundColor='#f26a36' block-size='20' step='1' style='width:{{leftWidth}}%;margin-right:0rpx;' bindchange="leftChange" />
+     <slider min='{{rightMin}}' max='{{rightMax}}' value='{{rightValue}}' activeColor='#f26a36' backgroundColor='#cecacb' block-size='20' step='1' style='width:{{rightWidth}}%;margin-left:0rpx;' bindchange="rightChange" />
+    </view>
+    <view class="txt">08 09 10 11 12 13 14 15 16 17 18</view>
+    <button bindtap="makesure">确定</button>
+  </view> 
