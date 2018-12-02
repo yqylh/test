@@ -14,10 +14,9 @@ rs = 13;
 re = 18;
 var as = []
 var at = []
-for (var i = 0; i < 3; i++)
-  as.push(i + 8);
-for (var i = 0; i < 3; i++)
-  at.push(i + 9);
+var ccc;
+  as.push(8);
+  at.push(18);
 Page({
   data: {
     arrays: as,
@@ -33,7 +32,9 @@ Page({
     leftV: ls + ":00",
     rightV: re + ":00"
   },
-
+  onLoad:function(e){
+    ccc=e.id;
+  },
   // 左边滑块滑动的值
   leftChange: function (e) {
     console.log('左边改变的值为：' + e.detail.value);
@@ -107,6 +108,9 @@ Page({
           as[ii] = rnow;
         }
       }
+      wx.navigateTo({
+        url: '../apply/apply?id=' + ccc,
+      })
       wx.showToast({
         title: '成功',
       })

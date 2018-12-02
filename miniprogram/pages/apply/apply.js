@@ -1,5 +1,8 @@
 // miniprogram/pages/apply/apply.js
+wx.cloud.init()
 const db = wx.cloud.database()
+const _ = db.command
+import regeneratorRuntime from '../regenerator-runtime/runtime.js';
 Page({
 
   /**
@@ -16,7 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.id)
   },
 
   /**
@@ -88,14 +91,49 @@ Page({
     })
   },              ///将该四个变量传到数据库中即可
   confirm:function(e){
-    if(this.data.meetingTheme!=''){  
-      wx.navigateBack({
-        url: '../preordain/preordain',
+    var Mythis = this
+    var where_id = e.id
+    // console.log(time)
+    if(this.data.meetingTheme!=''){
+      var date2 = new Date;
+      var date22 = date2.toString()
+      db.collection('meeting').add({
+        data: {
+          Introduction: Mythis.data.meetingContent,
+          check:2,
+          time: date22,
+          where: where_id,
+          title: Mythis.data.meetingTheme,
+          mediaNeeded: Mythis.data.mediaNeeded,
+          teaNeed: Mythis.data.teaNeed
+        },
+        success: function (res) {
+          // console.log(res)
+        },
+        fail: console.error
       }),
-        wx.showToast({
-          title: '申请成功!',
-          icon: 'success',
-        })
+      wx.cloud.callFunction({
+        name: 'login',
+        complete: res => {
+          db.collection('user').where({
+            _openid: _.eq(res.result.OPENID)
+          })
+            .get({
+              success: function (res) {
+                res.data[0].participate.push(date22)
+                console.log(res)
+              }
+            })
+
+        }
+      })
+      wx.navigateBack({
+        url: '../index/index',
+      }),
+      wx.showToast({
+        title: '申请成功!',
+        icon: 'success',
+      })
     }else {
       wx.showToast({
         title: '会议主题不能为空!',

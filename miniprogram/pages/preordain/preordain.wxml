@@ -4,9 +4,6 @@
   <button class='weui-badge' style="background-color:#00a381" bindtap='powerDrawer' data-statu="open">
     <text>日期</text>
   </button>
-  <button class='weui-badge' style="background-color:#00a381" bindtap='showType'>
-    <text>教室类型</text>
-  </button>
   <button class='weui-badge' style="background-color:#00a381" bindtap='showCont' data-statu="open">
     <text>容纳人数</text>
   </button>
@@ -81,9 +78,9 @@
 
 
   <block wx:for-items="{{classType}}" wx:for-index="id" wx:for-item="page" wx:key="id">
-    <view hidden="{{num != id}}" data-id="{{item.id}}" bindtap="toDetailPage">
-      <view class="list-item" wx:for="{{page}}">
-        <view bindtap='toDetail'>
+    <view hidden="{{ifhidden[id]}}" data-id="{{item.id}}">
+      <view class="list-item" wx:for="{{page}}" wx:for-index="i">
+        <view bindtap='toDetail' data-id="{{i}}">
           {{item}}
         </view>
       </view>
