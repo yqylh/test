@@ -3,6 +3,12 @@ wx.cloud.init()
 const db = wx.cloud.database()
 const _ = db.command
 var id
+var whereis
+var year
+var month
+var day
+var lnow
+var rnow
 import regeneratorRuntime from '../regenerator-runtime/runtime.js';
 Page({
 
@@ -20,7 +26,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
+    console.log(options)
+    whereis = options.id
+    year = options.year
+    month = options.month
+    day = options.day
+    lnow = options.lnow
+    rnow = options.rnow
+    console.log(whereis,year,month,day,lnow,rnow)
     wx.cloud.callFunction({
       name: 'login',
       complete: res => {
@@ -101,17 +114,22 @@ Page({
   },              ///将该四个变量传到数据库中即可
   confirm: function (e) {
     var Mythis = this
-    var where_id = e.id
+    // var where_id = e.id
     // console.log(time)
     if (this.data.meetingTheme != '') {
       var date2 = new Date;
       var date22 = date2.toString()
+      var enddd = new Date(year, month, day, rnow)
+      var beggggg = new Date(year, month, day, lnow)
+      console.log(year, month, day, rnow)
       db.collection('meeting').add({
         data: {
           Introduction: Mythis.data.meetingContent,
           check: 2,
           time: date22,
-          where: where_id,
+          where: whereis,
+          from: beggggg,
+          end: enddd,
           title: Mythis.data.meetingTheme,
           mediaNeeded: Mythis.data.mediaNeeded,
           teaNeed: Mythis.data.teaNeed

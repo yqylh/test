@@ -283,8 +283,9 @@ Page({
   },
   toDetail:function(e){
     // console.log(e.currentTarget.dataset.id)
+    
     wx.navigateTo({
-      url: '../selectTime/selectTime?id=' + this.data.idid[e.currentTarget.dataset.id],
+      url: '../selectTime/selectTime?id=' + this.data.idid[e.currentTarget.dataset.id] + '&year=' + this.data.year + '&month=' + this.data.month + '&day=' + this.data.day
     })
     // wx.navigateTo({
     //   url: '../apply/apply?id=' + this.data.idid[e.currentTarget.dataset.id],

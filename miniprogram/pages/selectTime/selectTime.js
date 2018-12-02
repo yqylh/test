@@ -1,7 +1,7 @@
 var rth;
 var lth;
-var lnow;
-var rnow;
+var lnow = 8;
+var rnow = 18;
 rth = 50;
 lth = 50;
 var ls;
@@ -15,6 +15,9 @@ re = 18;
 var as = []
 var at = []
 var ccc;
+var year
+var month
+var day
   as.push(8);
   at.push(18);
 Page({
@@ -34,6 +37,10 @@ Page({
   },
   onLoad:function(e){
     ccc=e.id;
+    year = e.year
+    month = e.month
+    day = e.day
+    console.log(year, month, day)
   },
   // 左边滑块滑动的值
   leftChange: function (e) {
@@ -108,8 +115,9 @@ Page({
           as[ii] = rnow;
         }
       }
+      console.log('+' + lnow)
       wx.navigateTo({
-        url: '../apply/apply?id=' + ccc,
+        url: '../apply/apply?id=' + ccc + '&year=' + year + '&month=' + month + '&day=' + day + '&lnow=' + lnow + '&rnow=' + rnow
       })
       wx.showToast({
         title: '成功',

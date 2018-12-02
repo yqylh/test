@@ -14,7 +14,8 @@ Page({
     requestResult: '',
     name: '',
     id:'',
-    identity:''
+    identity:'',
+    flag:true
   },
   clicksao: function () {
     wx.scanCode({
@@ -57,6 +58,11 @@ Page({
           myThis.setData({
             identity: st,
           })
+          if (st == 'Admin') {
+            myThis.setData({
+              flag: false,
+            })
+          }
         }
       })
   },

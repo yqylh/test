@@ -18,7 +18,7 @@
     </navigator>
   </view>
 
-  <view class='uploader' hidden='{{identity!="Admin"}}'>
+  <view class='uploader' hidden='{{flag}}'>
     <navigator class='uploader-text' style='color:#ff6633;' url='../admin/admin'>
       管理信息
     </navigator>

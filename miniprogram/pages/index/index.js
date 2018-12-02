@@ -110,7 +110,7 @@ Page({
           for (var i = 1; i < attend.length; i++) {
             db.collection('meeting').where({
               time: _.eq(attend[i]),
-              end: _.lt(date2),
+              // end: _.lt(date2),
               check: _.eq(1)
             })
               .get({
@@ -141,7 +141,7 @@ Page({
             })
               .get({
                 success: function (res) {
-                  console.log(res)
+                  // console.log(res)
                   Mythis.data.hisList.push('时间' + res.data[0].from + '地点' + res.data[0].where + '主题' + res.data[0].title)
                   Mythis.setData({
                     hisList: Mythis.data.hisList,
