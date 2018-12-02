@@ -1,5 +1,8 @@
 // pages/logs/logs.js
 //获取应用实例
+wx.cloud.init()
+const db = wx.cloud.database()
+const _ = db.command
 var app = getApp()
 var b1
 var b2
@@ -52,8 +55,10 @@ for (let i = 1; i <= 31; i++) {
 }
 Page({
   data: {
-    classType:[['1','2','3','4','5','6'],['1','2'],['3','4'],['5','6']],
+    classType:[[]],
+    ifhidden:[],
     curClass:[],
+    idid:[],
     num: 0,
     leastCont:0,
     mostCont:0,
@@ -75,25 +80,29 @@ Page({
     showModalStatus: false,
     showContStatus: false,
   },
-
-  showType: function () {
-    var myThis = this;
-    wx.showActionSheet({
-      itemList: ['显示全部','大', '中', '小'],
-      success: function (res) {
-        myThis.setData({
-          num: res.tapIndex 
-        })
-      },
-      fail: function (res) {
-        console.log(res.errMsg)
-      },
+  onLoad: function () {
+    var Mythis = this;
+    var attend;
+    db.collection('room').where({
+      maxnum:_.gt(0)
     })
-
+      .get({
+        success: function (res) {
+          // _id = res.data[0]._id
+          // attend = res.data[0].participate
+          for (var i = 0; i < res.data.length; i++) {
+            Mythis.data.classType[0].push(res.data[i].where + "最多" + res.data[i].maxnum + "人")
+            Mythis.data.ifhidden.push(false)
+            Mythis.data.idid.push(res.data[i].where)
+            Mythis.setData({
+              classType:Mythis.data.classType,
+              ifhidden:Mythis.data.ifhidden,
+              idid:Mythis.data.idid
+            })
+          }
+        }
+      })
   },
-  /**
-   * 对话框确认按钮点击事件
-   */
   powerDrawer: function (e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
@@ -116,7 +125,6 @@ Page({
           } else {
             console.log('用户点击取消')
           }
-
         }
       })
     }
@@ -229,11 +237,34 @@ Page({
     }
   },
   reg: function (e) {
+    // console.log(this.data)
     if (e.detail.value.least <= e.detail.value.most) {
+      var Mythis = this;
+      var attend;
+      db.collection('room').where({
+        maxnum: _.gt(0)
+      })
+        .get({
+          success: function (res) {
+            for (var i = 0; i < res.data.length; i++) {
+              if (res.data[i].maxnum > e.detail.value.most || res.data[i].maxnum < e.detail.value.least){
+                Mythis.data.ifhidden[i] = true;
+                Mythis.setData({
+                  ifhidden: Mythis.data.ifhidden
+                })
+              } else {
+                Mythis.data.ifhidden[i] = false;
+                Mythis.setData({
+                  ifhidden: Mythis.data.ifhidden
+                })
+              }
+            }
+          }
+        })
       this.setData({
         showContStatus: false,
       })
-      //存入数据库
+      // 存入数据库
     }
     else {
       this.setData({
@@ -249,9 +280,10 @@ Page({
       mostCont: e.detail.value.most,
     })
   },
-  toDetail:function(){
+  toDetail:function(e){
+    // console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '../apply/apply',
+      url: '../apply/apply?id=' + this.data.idid[e.currentTarget.dataset.id],
     })
   },
   showCont: function (e) {
