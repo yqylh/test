@@ -84,14 +84,15 @@ Page({
     var Mythis = this;
     var attend;
     db.collection('room').where({
-      maxnum:_.gt(0)
+      // maxnum:_.gt(0)
     })
       .get({
         success: function (res) {
           // _id = res.data[0]._id
           // attend = res.data[0].participate
           for (var i = 0; i < res.data.length; i++) {
-            Mythis.data.classType[0].push(res.data[i].where + "最多" + res.data[i].maxnum + "人")
+            Mythis.data.classType[0].push(res.data[i].where + " 容量 :" + res.data[i].maxnum + "人")
+            console.log(res.data[i].maxnum)
             Mythis.data.ifhidden.push(false)
             Mythis.data.idid.push(res.data[i].where)
             Mythis.setData({

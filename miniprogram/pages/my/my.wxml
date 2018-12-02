@@ -2,41 +2,37 @@
 <view class="container">
   <!-- 用户 openid -->
   <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-    ></button>
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
     <view>
       <button class="userinfo-nickname">
-       {{userInfo.nickName}}
-       <view class='identity' hidden="{{identity==''}}" >
-        {{identity}}
-       </view>
+        {{userInfo.nickName}}
+        <view class='identity' hidden="{{identity==''}}">
+          {{identity}}
+        </view>
       </button>
     </view>
   </view>
   <view class='uploader'>
-      <navigator class='uploader-text' url='../clientInfo/clientInfo'>
-        我的资料
-      </navigator>
+    <navigator class='uploader-text' url='../clientInfo/clientInfo'>
+      我的资料
+    </navigator>
+  </view>
+
+  <view class='uploader' hidden='{{identity!="Admin"}}'>
+    <navigator class='uploader-text' style='color:#ff6633;' url='../admin/admin'>
+      管理信息
+    </navigator>
   </view>
 
   <view class='uploader'>
-      <navigator class='uploader-text' url='../versionInfo/versionInfo'>
-        版本信息
-      </navigator>
+    <navigator class='uploader-text' url='../versionInfo/versionInfo'>
+      版本信息
+    </navigator>
   </view>
 
-    <view class='uploader' hidden='{{identity!="Admin"}}'>
-      <navigator class='uploader-text' style='color:#ff6633;' url='../admin/admin'>
-        管理信息
-      </navigator>
-    </view>
-    <view class='uploader'>
-      <view class='uploader-text' >
+  <view class='uploader'>
+    <view class='uploader-text'>
       <button open-type='contact' class='contact'>反馈</button>
-      </view>
+    </view>
   </view>
 </view>

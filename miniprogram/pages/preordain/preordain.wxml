@@ -8,7 +8,7 @@
     <text>容纳人数</text>
   </button>
   <view class='list-item' style="font-size:35rpx;background-color:#F8F8F8;">{{year}} 年 {{month}} 月 {{day}} 日</view>
-  <view class='list-item' style="font-size:35rpx;background-color:#F8F8F8;" hidden='{{!leastCont||!mostCont}}'>期望容纳:{{leastCont}} 到 {{mostCont}} 人</view>
+  <view class='list-item' style="font-size:35rpx;background-color:#F8F8F8;" hidden='{{!leastCont||!mostCont}}'>期望容纳:{{leastCont}} 到 {{mostCont}} 人  符合条件的有:</view>
 
 
 
@@ -78,8 +78,8 @@
 
 
   <block wx:for-items="{{classType}}" wx:for-index="id" wx:for-item="page" wx:key="id">
-    <view hidden="{{ifhidden[id]}}" data-id="{{item.id}}">
-      <view class="list-item" wx:for="{{page}}" wx:for-index="i">
+    <view  data-id="{{item.id}}">
+      <view class="list-item" wx:for="{{page}}" wx:for-index="i" hidden="{{ifhidden[i]}}">
         <view bindtap='toDetail' data-id="{{i}}">
           {{item}}
         </view>

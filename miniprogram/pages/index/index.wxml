@@ -14,7 +14,7 @@
     </view>
     <view class='float-box'>  
       <button class='weui-badge' style="background-color:#1AAD19" bindtap='showOrdlist' >  
-        <text>已参加</text>
+        <text>已预约</text>
       </button>
       <button class='weui-badge' style="background-color:#33ccff" bindtap='showWaitlist' > 
         <text>待审核</text>
