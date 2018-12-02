@@ -19,7 +19,7 @@ Page({
     previousMargin: 0,
     nextMargin: 0,
     open:[false,true,true],
-    ordList:['test1','test2\n换行'],
+    ordList:[],
     waitList:['waiting one','waiting two','waiting tree'],
     hisList:['his1','his2'],
   },
@@ -35,9 +35,9 @@ Page({
   },
   showOrdlist: function(){
     this.setData({
-      open: [false, true, true]
+      open: [false, true, true],
+      ordList:this.data.ordList,
     })
-    // console.log(this.data.ordList)
   },
   showWaitlist: function (e) {
     this.setData({
@@ -93,12 +93,10 @@ Page({
         })
       }
     })
-    while(id != null);
+    // while(id != null);
     // console.log(23)
-    var Mythis = this
-    var attend
-    
-
+    var Mythis = this;
+    var attend;
     db.collection('user').where({
       _openid: _.eq(id)
     })
@@ -114,13 +112,14 @@ Page({
               .get({
                 success: function (res) {
                   Mythis.data.ordList.push(res.data[0].from + res.data[0].where + res.data[0].title)
-                  console.log('!' + Mythis.data.ordList.length)
-                  console.log('!' + Mythis.data.ordList)
-              }
-            })
+                  //console.log('!' + Mythis.data.ordList.length)
+                  Mythis.setData({
+                    ordList: Mythis.data.ordList,
+                  })
+                }
+              })
           }
         }
       })
-    console.log(233)
   },
-})
+});
